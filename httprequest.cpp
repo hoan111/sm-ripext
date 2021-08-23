@@ -63,9 +63,10 @@ void HTTPRequest::UploadFile(const char *path, IChangeableForward *forward, cell
 
 void HTTPRequest::PostForm(IChangeableForward *forward, cell_t value)
 {
-	SetHeader("Accept", "application/json");
-	SetHeader("Content-Type", "application/x-www-form-urlencoded");
-
+	//SetHeader("Accept", "application/json");
+	//SetHeader("Content-Type", "application/x-www-form-urlencoded");
+	SetHeader("Content-Type", "application/json");
+	
 	HTTPFormContext *context = new HTTPFormContext(BuildURL(), formData, BuildHeaders(), forward, value,
 		connectTimeout, maxRedirects, timeout, maxSendSpeed, maxRecvSpeed, useBasicAuth, username, password);
 
